@@ -17,13 +17,7 @@ const Navbar: FC = () => (
           </Link>
           <nav className="hidden ml-6 space-x-4 lg:block">
             <Link href="/search">
-              <a className={s.link}>Todos</a>
-            </Link>
-            <Link href="/search?q=procesadores">
-              <a className={s.link}>Procesadores</a>
-            </Link>
-            <Link href="/search?q=monitores">
-              <a className={s.link}>Monitores</a>
+              <a className={s.link}>Categorias</a>
             </Link>
           </nav>
         </div>

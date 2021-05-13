@@ -20,10 +20,10 @@ import getSlug from '@lib/get-slug'
 
 // TODO (bc) : Remove or standarize this.
 const SORT = Object.entries({
-  'latest-desc': 'Latest arrivals',
+  'latest-desc': 'Recien llegados',
   'trending-desc': 'Trending',
-  'price-asc': 'Price: Low to high',
-  'price-desc': 'Price: High to low',
+  'price-asc': 'Precio: Menor a mayor',
+  'price-desc': 'Precio: Mayor a menor',
 })
 
 import {
@@ -194,7 +194,7 @@ export default function Search({
           </div>
 
           {/* Designs */}
-          <div className="relative inline-block w-full">
+          {/* <div className="relative inline-block w-full">
             <div className="lg:hidden mt-3">
               <span className="rounded-md shadow-sm">
                 <button
@@ -293,7 +293,7 @@ export default function Search({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* Products */}
         <div className="col-span-8 order-3 lg:order-none">
