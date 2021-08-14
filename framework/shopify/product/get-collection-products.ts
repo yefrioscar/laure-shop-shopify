@@ -4,9 +4,11 @@ import { normalizeProduct, getProductQuery } from '../utils'
 import { ProductEdge } from '../schema'
 import { Product } from '@commerce/types'
 import getCollectionQuery from '../utils/queries/get-collections-query'
+import getCollectionProductsQuery from '../utils/queries/get-collection-products-query'
 
 type Variables = {
-  id: string
+  categoryId: string
+  first: number
 }
 
 type ReturnType = {
@@ -22,7 +24,7 @@ const getCollectionProducts = async (options: {
   config = getConfig(config)
 
   const { data }: GraphQLFetcherResult = await config.fetch(
-    getCollectionQuery,
+    getCollectionProductsQuery,
     {
       variables,
     }
@@ -32,13 +34,13 @@ const getCollectionProducts = async (options: {
   console.log(data)
   console.log('====================================')
 
-  const products =
-    data.products?.edges?.map(({ node: p }: ProductEdge) =>
-      normalizeProduct(p)
-    ) ?? []
+  // const products =
+  //   data.products?.edges?.map(({ node: p }: ProductEdge) =>
+  //     normalizeProduct(p)
+  //   ) ?? []
 
   return {
-    products,
+    data,
   }
 }
 

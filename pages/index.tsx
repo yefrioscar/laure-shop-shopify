@@ -8,6 +8,8 @@ import { getConfig } from '@framework/api'
 import getAllProducts from '@framework/product/get-all-products'
 import getSiteInfo from '@framework/common/get-site-info'
 import getAllPages from '@framework/common/get-all-pages'
+import getAllCollections from '../framework/shopify/product/get-all-collections'
+import getCollectionProducts from '../framework/shopify/product/get-collection-products'
 
 export async function getStaticProps({
   preview,
@@ -20,6 +22,17 @@ export async function getStaticProps({
     config,
     preview,
   })
+  // const { categories } = await getAllCollections({
+  //   variables: { first: 12 },
+  //   config,
+  //   preview,
+  // })
+
+  // const productsByCollection = await getCollectionProducts({
+  //   variables: { categoryId: 'Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzI2NzcxMjk1NDU2NQ==', first: 3 },
+  //   config,
+  //   preview,
+  // })
 
   const { categories, brands } = await getSiteInfo({ config, preview })
   const { pages } = await getAllPages({ config, preview })
@@ -31,6 +44,7 @@ export async function getStaticProps({
       categories,
       brands,
       pages,
+      // productsByCollection
     },
     revalidate: 14400,
   }
@@ -41,6 +55,9 @@ export default function Home({
   brands,
   categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log('====================================')
+  console.log(products)
+  console.log('====================================')
   return (
     <>
       <Grid>
