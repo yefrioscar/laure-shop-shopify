@@ -34,13 +34,13 @@ const getCollectionProducts = async (options: {
   console.log(data)
   console.log('====================================')
 
-  // const products =
-  //   data.products?.edges?.map(({ node: p }: ProductEdge) =>
-  //     normalizeProduct(p)
-  //   ) ?? []
+  const products =
+    data.products?.edges?.map(({ node: p }: ProductEdge) =>
+      normalizeProduct(p)
+    ) ?? []
 
   return {
-    data,
+    products,
   }
 }
 
